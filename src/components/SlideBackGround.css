@@ -1,0 +1,21 @@
+.slide-background {
+    background: #474545;
+    animation: slide 1s ease-in-out;
+    height: 50vh;
+    box-sizing: border-box;
+    margin: 0 auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+  }
+  
+  @keyframes slide {
+    0% {
+        transform: translateY(-400%);
+    }
+
+    100% {
+        transform: translateY(100%);
+    }
+}
+
+  
