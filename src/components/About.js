@@ -16,7 +16,7 @@ import css from "../images/css.png";
 import javascript from "../images/javascript.png";
 import reactjs from "../images/reactjs.png";
 import html from "../images/html.png";
-import cv from "../files/cv.pdf";
+import TranHoangPhu_CV from "../files/cv.pdf";
 import ml from "../files/ml.jpg";
 
 import { TfiMenu } from "react-icons/tfi";
@@ -529,7 +529,11 @@ export default function About() {
                   </Row>
                   <Row className="about__info-info-container-row">
                     <div>
-                      <a href={cv} className="download-button" download="cv">
+                      <a
+                        href={TranHoangPhu_CV}
+                        className="download-button"
+                        download="TranHoangPhu_CV"
+                      >
                         Download CV <MdDownload className="download-arrow" />
                       </a>
                       <a
