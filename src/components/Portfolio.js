@@ -399,25 +399,35 @@ const WrapperStyled = styled.div`
     }
   }
   @media (max-width: 992px) {
-
-    .portfolio__highlight {
-      .colDescription1,
-      .colDescription2 {
-        width: 60%;
-
-    }
     .portfolio__others {
       &-row1,
       &-row2,
       &-row3 {
         ul {
           width: 60%;
+          li{
+            ${(props) => props.centeredFlex()}
+            
+          }
+          li:last-child{
+            flex-direction:row;
+          }
+          p{
+            text-align:center;
+          }
         }
         div {
           margin: 20px 0px 20px 0px;
           ${(props) => props.centeredFlex()}
         }
       }
+    }
+
+    .portfolio__highlight {
+      .colDescription1,
+      .colDescription2 {
+        width: 60%;
+
     }
   }
   @media (max-width: 768px) {
@@ -478,6 +488,9 @@ const WrapperStyled = styled.div`
         ul {
           width: 100%;
           font-size: 15px;
+          li:last-child{
+            display:flex;
+          }
         }
         div {
           margin: 20px 0px 20px 0px;
@@ -733,7 +746,7 @@ export default function Portfolio() {
                         </p>
                       </li>
                       <li className="d-flex">
-                        <Nav.Link href="https://github.com/thanhphat365/TodoApp">
+                        <Nav.Link href="https://github.com/THP297/TodoApp">
                           <img src={github} alt="#github" width={50} />
                         </Nav.Link>
                         <Nav.Link href="https://todo-app-hazel-delta.vercel.app/">

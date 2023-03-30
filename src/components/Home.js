@@ -181,7 +181,7 @@ const WrapperStyled = styled.div`
       img {
         border-radius: 30%;
         border: 5px solid grey;
-        width: 30%;
+        width: 35%;
       }
     }
 
@@ -380,9 +380,9 @@ export default function Home() {
                   -- I'm Tran Hoang Phu <br /> A Web developer{" "}
                 </p>
                 <p className="home__introduce-element home__introduce-description">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Dolorem impedit quam atque qui distinctio suscipit ad
-                  quibusdam vitae doloremque reiciendis!
+                  I'm in my web development journey, i'd love to adjust the web
+                  page to create the most satisfied experience for users on
+                  multiple devices
                 </p>
                 <div className="home__introduce-element home__introduce-about-wrapper">
                   <Nav.Link className="home__introduce-about" href="/about">

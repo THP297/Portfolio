@@ -4,10 +4,9 @@ import React, { useEffect } from "react";
 import "./SlideBackGround.css";
 import { AppContext } from "./AppProvider";
 
-import { BsFillHouseDoorFill } from "react-icons/bs";
+import { BsFillHouseDoorFill, BsLinkedin, BsGithub } from "react-icons/bs";
 import { MdDownload } from "react-icons/md";
 import { IoIosInformationCircle } from "react-icons/io";
-import { AiOutlineContacts } from "react-icons/ai";
 import { GiSkills } from "react-icons/gi";
 import { FaGraduationCap } from "react-icons/fa";
 
@@ -50,6 +49,9 @@ const WrapperStyled = styled.div`
   .menu {
     width: ${(props) => props.width}%;
     height: ${(props) => props.height}%;
+  }
+  .home__container_row {
+    margin: 0 auto;
   }
 
   // -------------------------------------------------MENU------------------------------------------------
@@ -201,8 +203,11 @@ const WrapperStyled = styled.div`
 
   //------------------------------------------------ABOUT ME---------------------------------------------
   .about__info {
+    width: 100%;
+
     ${(props) => props.centeredFlex()}
     padding:5%;
+    padding-top: 100px;
 
     &-title {
       ${(props) => props.centeredFlex()}
@@ -231,9 +236,10 @@ const WrapperStyled = styled.div`
       }
     }
     &-info {
-      width: 70%;
+      width: 100%;
       margin-bottom: 30px;
       &-container {
+        width: 70%;
         ${(props) => props.centeredFlex()}
         #personal_info_title {
           color: ${(props) => props.text_color};
@@ -242,10 +248,21 @@ const WrapperStyled = styled.div`
         }
       }
       &-container-row {
+        display: flex;
+        justify-content: center;
+
         margin-bottom: 40px;
+        div {
+          width: 100%;
+          a {
+            margin-right: 20px;
+          }
+          display: flex;
+        }
       }
       &-container-row2 {
         width: ${(props) => props.width}%;
+        margin-bottom: 40px;
 
         p {
           margin: 10px;
@@ -258,9 +275,11 @@ const WrapperStyled = styled.div`
         }
       }
       .download-button {
+        display: flex;
+        align-items: center;
+        position: relative;
         text-decoration: none;
         color: black;
-        padding: 0;
         background: none;
         background-image: linear-gradient(
           to right,
@@ -270,12 +289,13 @@ const WrapperStyled = styled.div`
         background-repeat: no-repeat;
         background-size: 200% 100%; /* double the width to create space for the slide */
         transition: background-position 0.3s ease-out;
-        font-size: 20px;
         font-weight: bold;
         padding-left: 20px;
+        padding-right: 60px;
+        font-size: 20px;
         border: 1px solid ${(props) => props.primary_color};
-        border-radius: 60px;
         color: "black";
+        border-radius: 60px;
 
         &:hover {
           color: white;
@@ -285,22 +305,24 @@ const WrapperStyled = styled.div`
           }
         }
         .download-arrow {
+          right: 0;
+          bottom: 0;
+          position: absolute;
           background-color: ${(props) => props.background_color};
-
-          font-size: 50px;
+          font-size: 54px;
           color: ${(props) => props.text_color};
-          border-radius: 100%;
+          border-radius: 60px;
         }
       }
     }
   }
-  @media (max-width: 576px) {
+
+  @media (max-width: 992px) {
     .about__skills div {
       p {
-        font-size: 30px !important;
+        font-size: 30px;
       }
     }
-
     .about__experience {
       h1 {
         font-size: 30px;
@@ -313,13 +335,24 @@ const WrapperStyled = styled.div`
       }
     }
     .about__info {
-      &-info {
+      &-info-container {
         #personal_info_title {
           font-size: 30px;
         }
-        p {
-          font-size: 20px;
+        width: 80%;
+        &-row2 {
+          p {
+            font-size: 25px;
+          }
         }
+      }
+    }
+  }
+
+  @media (max-width: 568px) {
+    .about__info {
+      &-info-container {
+        width: 90%;
       }
     }
   }
@@ -460,7 +493,7 @@ export default function About() {
                   <div>
                     <p id="personal_info_title">PERSONAL INFOS</p>
                   </div>
-                  <Row className="about__info-info-container-row about__info-info-container-row2">
+                  <Row className=" about__info-info-container-row2">
                     <Col className="p-0 d-flex flex-column align-items-center">
                       <div>
                         <p>
@@ -495,9 +528,23 @@ export default function About() {
                     </Col>
                   </Row>
                   <Row className="about__info-info-container-row">
-                    <a href={cv} className="download-button" download="cv">
-                      Download CV <MdDownload className="download-arrow" />
-                    </a>
+                    <div>
+                      <a href={cv} className="download-button" download="cv">
+                        Download CV <MdDownload className="download-arrow" />
+                      </a>
+                      <a
+                        href="https://www.linkedin.com/in/tr%E1%BA%A7n-ph%C3%BA-ba05aa229/"
+                        style={{ fontSize: "50px" }}
+                      >
+                        <BsLinkedin />
+                      </a>
+                      <a
+                        href="https://github.com/THP297"
+                        style={{ fontSize: "50px" }}
+                      >
+                        <BsGithub />
+                      </a>
+                    </div>
                   </Row>
                 </Container>
               </div>
