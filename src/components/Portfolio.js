@@ -5,7 +5,6 @@ import { AppContext } from "./AppProvider";
 import styled from "styled-components";
 import { BsFillHouseDoorFill } from "react-icons/bs";
 import { IoIosInformationCircle } from "react-icons/io";
-import { AiOutlineContacts } from "react-icons/ai";
 import { GiSkills } from "react-icons/gi";
 import { TfiMenu } from "react-icons/tfi";
 
@@ -21,6 +20,7 @@ const WrapperStyled = styled.div`
   position: relative;
   * {
     z-index: 1;
+    box-sizing: border-box;
   }
 
   .menu-icon {
@@ -32,23 +32,26 @@ const WrapperStyled = styled.div`
     right: 20px;
   }
 
-  box-sizing: border-box;
   height: 100vh;
   background-color: ${(props) => props.background_color};
   margin: 0 auto;
   background-size: cover;
   overflow-x: hidden;
 
-  .home__container,
-  .home__container_row,
+  .portfolio__container,
+  .portfolio__container-row,
   .menu {
     width: ${(props) => props.width}%;
     height: ${(props) => props.height}%;
   }
-  .home__container_row {
+  .portfolio__container-row {
     margin: 0 auto;
   }
+  .portfolio__container-row-col1 {
+    ${(props) => props.centeredFlex()}
+  }
 
+  //---------------------------------------------------MENU----------------------------------------------
   .menu {
     ${(props) => props.centeredFlex()}
 
@@ -100,6 +103,7 @@ const WrapperStyled = styled.div`
     }
   }
 
+  // ---------------------------------------------INFO---------------------------------------------
   .portfolio__info {
     ${(props) => props.centeredFlex()}
     padding: 5%;
@@ -133,9 +137,113 @@ const WrapperStyled = styled.div`
     }
   }
 
+  //-------------------------------------------------HIGHLIGHT-----------------------------------------
+  h1 {
+    text-align: center;
+    font-size: 50px;
+    color: ${(props) => props.text_color};
+    margin-bottom: 60px;
+  }
+  .portfolio__highlight {
+    width: 60%;
+    margin-bottom: 150px;
+    ${(props) => props.centeredFlex()}
+    font-size: 25px;
+    }
+    img {
+      width: 50px;
+    }
+    a {
+      transition: border 1s ease-in-out, border-radius 1s ease-in-out;
+    }
+    a:hover {
+      img {
+        border: 1px solid ${(props) => props.primary_color};
+        border-radius: 5px;
+      }
+    }
+  }
+
+  .portfolio__highlight-container2 ul {
+    li:not(:first-child) {
+      p {
+        margin: 5px 0px 5px 0px;
+      }
+    }
+    li:first-child {
+      h3 {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  .portfolio__highlight-container1,
+  .portfolio__highlight-container2 {
+      &-col2 {
+        border: 1px solid white;
+      }
+      ${(props) => props.centeredFlex("flex", "row", "center")}
+      margin: 20px 0px 20px 0px;
+      li {
+        margin: 20px 0px 20px 0px;
+        width: 100%;
+      }
+
+      li h3 {
+        color: ${(props) => props.primary_color};
+      }
+      li p {
+        color: ${(props) => props.text_color};
+      }
+
+      ul .skills {
+        .skill {
+          padding: 0;
+          ${(props) => props.centeredFlex("flex", "row", "center")}
+
+          p {
+            color: white;
+            padding: 5px;
+            border: 1px solid ${(props) => props.text_color};
+          }
+        }
+      }
+    }
+
+  .portfolio__highlight-container1-image {
+    img {
+      transition: transform 0.5s ease-in-out;
+      width: 100%;
+      border-radius: 20px;
+      border: 5px solid ${(props) => props.primary_color};
+
+      &:hover {
+        transform: scale(1.3) translateX(-12%);
+      }
+    }
+  }
+
+  .portfolio__highlight-container2-image {
+    position: relative;
+
+    img {
+      width: 100%;
+      border-radius: 20px;
+      border: 5px solid ${(props) => props.primary_color};
+      transition: transform 0.5s ease-in-out;
+
+      &:hover {
+        transform: scale(1.1) translateX(12%);
+      }
+    }
+  }
+
   // --------------------------------------------OTHERS-------------------------------------------------
 
   .portfolio__others {
+    font-size: 25px;
+    width: 60%;
+    ${(props) => props.centeredFlex("flex", "column", "center", "center")}
     padding-bottom: 100px;
     span {
       padding: 5px;
@@ -150,352 +258,104 @@ const WrapperStyled = styled.div`
       margin-bottom: 20px;
     }
 
-    .container {
-      ${(props) => props.centeredFlex()}
-    }
     &-image {
-      width: 350px;
+      width: 100%;
       transition: width 0.5s ease-in-out;
-      &:hover {
-        width: 380px;
-      }
     }
 
-    &-row1,
-    &-row2,
-    &-row3 {
-      font-size: 30px;
-      margin: 20px 0px 20px 0px;
-      width: 60%;
-      ${(props) => props.centeredFlex("flex", "row", "space-between", "center")}
-    }
-    a img {
-      width: 50px;
-    }
-
-    a {
-      transition: border 1s ease-in-out, border-radius 1s ease-in-out;
-    }
-
-    a:hover {
-      border: 1px solid ${(props) => props.primary_color};
-      border-radius: 5px;
-    }
-  }
-
-  //-------------------------------------------------HIGHLIGHT-----------------------------------------
-  h1 {
-    text-align: center;
-    font-size: 50px;
-    color: ${(props) => props.text_color};
-    margin-bottom: 60px;
-  }
-  .portfolio__highlight {
-    margin-bottom: 150px;
-    ${(props) => props.centeredFlex()}
-
-    &-container1,
-    &-container2 {
-      ${(props) => props.centeredFlex("flex", "row", "center")}
-      margin: 20px 0px 20px 0px;
-      li {
-        margin: 20px 0px 20px 0px;
-      }
-
-      li h3 {
-        color: ${(props) => props.primary_color};
-      }
-      li p {
-        color: ${(props) => props.text_color};
-      }
-    }
-
-    .colDescription1 {
-      li:not(:first-child) p {
-        display:flex;
-      }
-
-      font-size: 30px;
-      float: left;
-      width: 80%;
-      li {
-        p {
-          margin: 20px 0px 20px 0px;
-        }
-      }
-    }
-    .colDescription2 {
-      li:not(:first-child) p {
-        display: flex;
-        align-items: center;
-      }
-      font-size: 30px;
-
-      float: right;
-      width: 80%;
-      li:not(:first-child) {
-        p {
-          margin: 35px 0px 35px 0px;
-        }
-      }
-      li:first-child {
-        h3 {
-          margin-bottom: 20px;
-        }
-      }
-    }
-
-    span {
-      border: 5px solid white;
-      padding: 8px;
-    }
-    img {
-      width: 50px;
-    }
-    a {
-      transition: border 1s ease-in-out, border-radius 1s ease-in-out;
-    }
-    a:hover {
-      border: 1px solid ${(props) => props.primary_color};
-      border-radius: 5px;
-    }
-  }
-
-  .portfolio__highlight-image1 {
-    transition: margin 1s ease-in-out, transform 1s ease-in-out;
-    text-align: right;
-
-    img {
-      width: 550px;
-      float: right;
-      transition: width 0.5s ease-in-out, margin 0.5s ease-in-out;
-      border-radius: 20px;
-      height: 100%;
-      border: 5px solid ${(props) => props.primary_color};
-
-      &:hover {
-        width: 600px;
-      }
-    }
-  }
-
-  .portfolio__highlight-image2 {
-    transition: padding 1s ease-in-out, transform 1s ease-in-out;
-    position: relative;
-
-    img {
-      border-radius: 20px;
-      width: 70%;
-      border: 5px solid ${(props) => props.primary_color};
-      transition: width 0.5s ease-in-out, margin 0.5s ease-in-out;
-
-      &:hover {
-        width: 75%;
-      }
-    }
-  }
-
-  @media (max-width: 1400px) {
-    .portfolio__others {
+    &-container {
       &-row1,
       &-row2,
       &-row3 {
-        width: 70%;
-        font-size: 25px;
+        ul {
+          li{
+            width:100%;
+          }
+        }
+        width: 100%;
+        margin: 20px 0px 20px 0px;
+        border-bottom: 1px solid white;
+        ${(props) => props.centeredFlex("flex", "row", "center", "center")}
       }
     }
-    .portfolio__highlight {
-      .colDescription1,
-      .colDescription2 {
-        width: 80%;
-        font-size: 25px;
+    
 
-
-        span {
-          margin: 5px 2px 5px 2px;
+    a {
+      transition: border 1s ease-in-out, border-radius 1s ease-in-out;
+      img{
+        width: 50px;
+      }
+      &:hover{
+        img {
+          border: 1px solid ${(props) => props.primary_color};
         }
       }
     }
 
-    .portfolio__highlight-image1 {
-      img {
-        width: 550px;
-      }
+
+  @media (max-width: 1400px){
+    .portfolio__highlight{
+      width:70%;
     }
-    .portfolio__highlight-image2 {
-      img {
-        width: 80%;
-      }
-    }
-    .portfolio__highlight {
-      .colDescription2 {
-        width: 100%;
-      }
+    .portfolio__others{
+      width:70%;
     }
   }
 
   @media (max-width: 1200px) {
-    .portfolio__others {
-      &-row1,
-      &-row2,
-      &-row3 {
-        width: 80%;
-
-      }
+    .portfolio__highlight-container1-col,
+    .portfolio__highlight-container2-col {
+      ${(props) => props.centeredFlex("flex", "column", "center", "center")}
     }
-    .portfolio__highlight {
-      .colDescription1,
-      .colDescription2 {
-        width: 50%;
-        text-align: center;
 
-        li:not(:first-child) p {
-          justify-content:center;          
-        }
-        
-        li:last-child {
-          justify-content: center;
-        }
-
-        span {
-          margin: 5px 2px 5px 2px;
-        }
+    .portfolio__highlight{
+      width:50%;
+    }
+    .portfolio__others{
+      width:70%;
+    }
+    .portfolio__highlight-container1-image{
+      img:hover{
+        transform: none;
       }
     }
     .portfolio__highlight-container1,
-    .portfolio__highlight-container2 {
-      margin: 70px 0px 0px 0px;
-      div {
-        ${(props) => props.centeredFlex()}
-      }
-    }
-
-    .portfolio__highlight-image1 {
-      img {
-        width: 500px;
-      }
-    }
-    .portfolio__highlight-image2 {
-      width: 100%;
-      img {
-        width: 50%;
-      }
-    }
-
-    .portfolio__highlight-container1:hover .colDescription1 {
-      margin: 0 0 0 0;
-    }
-    .portfolio__highlight-container2:hover .colDescription2 {
-      margin: 0 0 0 0;
-    }
-    .portfolio__highlight-image2,
-    .portfolio__highlight-image1 {
-      img {
-        &:hover {
-          margin: 0 0 50px 0;
-          transform: scale(1.1);
-        }
+    .portfolio__highlight-container2{
+      &-col1{
+        margin-bottom: 20px;
       }
     }
   }
-  @media (max-width: 992px) {
-    .portfolio__others {
-      &-row1,
-      &-row2,
-      &-row3 {
-        ul {
-          width: 60%;
-          li{
-            ${(props) => props.centeredFlex()}
-            
-          }
-          li:last-child{
-            flex-direction:row;
-          }
-          p{
-            text-align:center;
-          }
-        }
-        div {
-          margin: 20px 0px 20px 0px;
-          ${(props) => props.centeredFlex()}
-        }
-      }
-    }
-
-    .portfolio__highlight {
-      .colDescription1,
-      .colDescription2 {
-        width: 60%;
-
-    }
-  }
-  @media (max-width: 768px) {
-    .portfolio__highlight-image2 {
-      width: 100%;
-      img {
-        width: 60%;
-      }
-    }
-    .portfolio__highlight {
-      .colDescription1,
-      .colDescription2 {
-        width: 80%;
-        font-size;20px;
-      }
-    }
-    .portfolio__others {
-      &-row1,
-      &-row2,
-      &-row3 {
-        ul {
-          width: 70%;
-          font-size:20px;
-        }
-
+  @media (max-width: 992px){
+    .portfolio__others-container-row1,
+    .portfolio__others-container-row2,
+    .portfolio__others-container-row3{
+      &-col1,ul{
+      text-align:center;
       }
     }
   }
-  @media (max-width: 576px) {
-    .portfolio__highlight-image1 {
-      img {
-        width: 300px;
-        &:hover {
-          width: 330px;
-        }
-      }
+  @media (max-width: 768px){
+    .portfolio__highlight{
+      width:70%;
     }
-    .portfolio__highlight-image2 {
-      width: 100%;
-      img {
-        width: 80%;
-        &:hover {
-          width: 90%;
-        }
-      }
+    .portfolio__others{
+      width:80%;
     }
-    .portfolio__highlight {
-      .colDescription1,
-      .colDescription2 {
-        width: 100%;
-        font-size: 15px;
-      }
+  }
+
+  @media (max-width: 576px){
+    .portfolio__highlight{
+      width:90%;
     }
-    .portfolio__others {
-      &-row1,
-      &-row2,
-      &-row3 {
-        ul {
-          width: 100%;
-          font-size: 15px;
-          li:last-child{
-            display:flex;
-          }
-        }
-        div {
-          margin: 20px 0px 20px 0px;
-          ${(props) => props.centeredFlex()}
-        }
+    .portfolio__others{
+      width:100%;
+    }
+    .portfolio__others-container-row1,
+    .portfolio__others-container-row2,
+    .portfolio__others-container-row3{
+      &-col2{
+        padding:0;
       }
     }
   }
@@ -617,9 +477,15 @@ export default function Portfolio() {
         </Offcanvas.Body>
       </Offcanvas>
 
-      <Container className="home__container" fluid>
-        <Row className="home__container_row">
-          <Col xl={11} lg={12} md={12} xs={12}>
+      <Container className="portfolio__container" fluid>
+        <Row className="portfolio__container-row">
+          <Col
+            xl={11}
+            lg={12}
+            md={12}
+            xs={12}
+            className="portfolio__container-row-col1"
+          >
             <div className="portfolio__info">
               <button
                 className="d-block d-xl-none menuToggleButton "
@@ -638,13 +504,13 @@ export default function Portfolio() {
             <Row className="portfolio__highlight">
               <h1>HIGHLIGHT</h1>
               <Row className="portfolio__highlight-container1 ">
-                <Col xl={6}>
-                  <div className="portfolio__highlight-image1">
+                <Col xl={6} className="portfolio__highlight-container1-col1">
+                  <div className="portfolio__highlight-container1-image">
                     <img src={movie} alt="" />
                   </div>
                 </Col>
-                <Col xl={6}>
-                  <ul className="colDescription1">
+                <Col xl={6} className="portfolio__highlight-container1-col2">
+                  <ul>
                     <li>
                       <h3>Description:</h3>
                       <p>
@@ -655,12 +521,22 @@ export default function Portfolio() {
                     </li>
                     <li>
                       <h3>Skills in use:</h3>
-                      <p>
-                        <span>HMTL</span> <span>CSS</span>{" "}
-                        <span>JAVASCRIPT</span> <span>BOOTSTRAP 5</span>{" "}
-                      </p>
+                      <Row className="p-3 skills">
+                        <Col xl={6} lg={6} md={6} className="skill">
+                          <p>HTML</p>
+                        </Col>
+                        <Col xl={6} lg={6} md={6} className="skill">
+                          <p>CSS</p>
+                        </Col>
+                        <Col xl={6} lg={6} md={6} className="skill">
+                          <p>JAVASCRIPT</p>
+                        </Col>
+                        <Col xl={6} lg={6} md={6} className="skill">
+                          <p>BOOTSTRAP 5</p>
+                        </Col>
+                      </Row>
                     </li>
-                    <li className="d-flex">
+                    <li className="d-flex align-items-center justify-content-center">
                       <Nav.Link href="https://github.com/THP297/Movie-App">
                         <img src={github} alt="#github" width={50} />
                       </Nav.Link>
@@ -672,13 +548,23 @@ export default function Portfolio() {
                 </Col>
               </Row>
               <Row className="portfolio__highlight-container2">
-                <Col xl={6} lg={12} md={12} className="Col2 order-xl-2">
-                  <div className="portfolio__highlight-image2">
+                <Col
+                  xl={6}
+                  lg={12}
+                  md={12}
+                  className="portfolio__highlight-container2-col1 order-xl-2"
+                >
+                  <div className="portfolio__highlight-container2-image">
                     <img src={chatapp} alt="" />
                   </div>
                 </Col>
-                <Col xl={6} lg={12} md={12} className="Col1 order-xl-1">
-                  <ul className="colDescription2">
+                <Col
+                  xl={6}
+                  lg={12}
+                  md={12}
+                  className="portfolio__highlight-container2-col2 order-xl-1"
+                >
+                  <ul>
                     <li>
                       <h3>Description:</h3>
                       <p>
@@ -690,11 +576,11 @@ export default function Portfolio() {
                     <li>
                       <h3>Skills in use:</h3>
                       <p>
-                        Frontend: <span>HTML</span>{" "}
-                        <span>Styled-Components</span>{" "}
+                        Frontend: <span>HTML,</span>{" "}
+                        <span> Styled-Components</span>{" "}
                       </p>
                       <p>
-                        <span>React-Bootstrap</span> <span>Reactjs</span>{" "}
+                        <span>React-Bootstrap,</span> <span>Reactjs</span>{" "}
                       </p>
                       <p>
                         Backend: <span>Firebase</span>{" "}
@@ -707,7 +593,7 @@ export default function Portfolio() {
                       <p>Demo Account: livedemo297@gmail.com</p>
                       <p>Demo Password: DemoAccount123@</p>
                     </li>
-                    <li className="d-flex">
+                    <li className="d-flex align-items-center justify-content-center">
                       <Nav.Link href="https://github.com/THP297/RealTimeChatApp">
                         <img src={github} alt="#github" />
                       </Nav.Link>
@@ -721,16 +607,26 @@ export default function Portfolio() {
             </Row>
             <Row className="portfolio__others">
               <h1>OTHERS</h1>
-              <Container>
-                <Row className="portfolio__others-row1">
-                  <Col xl={6} lg={6} md={12}>
+              <Container className="portfolio__others-container" fluid>
+                <Row className="portfolio__others-container-row1">
+                  <Col
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    className="p-0 portfolio__others-container-row1-col1"
+                  >
                     <img
                       className="portfolio__others-image"
                       src={todo}
                       alt="#todo"
                     />
                   </Col>
-                  <Col xl={6} lg={6} md={12}>
+                  <Col
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    className="portfolio__others-container-row1-col2"
+                  >
                     <ul>
                       <li>
                         <h3>Description</h3>
@@ -745,7 +641,7 @@ export default function Portfolio() {
                           <span>Reactjs</span> <span>SCSS</span>
                         </p>
                       </li>
-                      <li className="d-flex">
+                      <li className="d-flex align-items-center justify-content-center">
                         <Nav.Link href="https://github.com/THP297/TodoApp">
                           <img src={github} alt="#github" width={50} />
                         </Nav.Link>
@@ -756,15 +652,25 @@ export default function Portfolio() {
                     </ul>
                   </Col>
                 </Row>
-                <Row className="portfolio__others-row2">
-                  <Col xl={6} lg={6} md={12}>
+                <Row className="portfolio__others-container-row2">
+                  <Col
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    className="p-0 portfolio__others-container-row2-col1"
+                  >
                     <img
                       className="portfolio__others-image"
                       src={weatherapp}
                       alt="#todo"
                     />
                   </Col>
-                  <Col xl={6} lg={6} md={12}>
+                  <Col
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    className="portfolio__others-container-row2-col2"
+                  >
                     <ul>
                       <li>
                         <h3>Description</h3>
@@ -781,7 +687,7 @@ export default function Portfolio() {
                           <span>HTML</span>
                         </p>
                       </li>
-                      <li className="d-flex">
+                      <li className="d-flex align-items-center justify-content-center">
                         <Nav.Link href="https://github.com/THP297/WeatherApp">
                           <img src={github} alt="#github" width={50} />
                         </Nav.Link>
@@ -792,15 +698,25 @@ export default function Portfolio() {
                     </ul>
                   </Col>
                 </Row>
-                <Row className="portfolio__others-row3">
-                  <Col xl={6} lg={6} md={12}>
+                <Row className="portfolio__others-container-row3">
+                  <Col
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    className="p-0 portfolio__others-container-row3-col1"
+                  >
                     <img
                       className="portfolio__others-image"
                       src={calculator}
                       alt="#todo"
                     />
                   </Col>
-                  <Col xl={6} lg={6} md={12}>
+                  <Col
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    className="portfolio__others-container-row3-col2"
+                  >
                     <ul>
                       <li>
                         <h3>Description</h3>
@@ -816,7 +732,7 @@ export default function Portfolio() {
                           <span>HTML</span>
                         </p>
                       </li>
-                      <li className="d-flex">
+                      <li className="d-flex align-items-center justify-content-center">
                         <Nav.Link href="https://github.com/THP297/Calculator">
                           <img src={github} alt="#github" width={50} />
                         </Nav.Link>

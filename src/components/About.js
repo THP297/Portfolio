@@ -20,10 +20,12 @@ import TranHoangPhu_CV from "../files/cv.pdf";
 import ml from "../files/ml.jpg";
 
 import { TfiMenu } from "react-icons/tfi";
+
 const WrapperStyled = styled.div`
   position: relative;
   * {
     z-index: 1;
+    box-sizing: border-box;
   }
 
   .menu-icon {
@@ -36,7 +38,6 @@ const WrapperStyled = styled.div`
     right: 20px;
   }
 
-  box-sizing: border-box;
   height: 100vh;
   background-color: ${(props) => props.background_color};
   margin: 0 auto;
@@ -44,14 +45,17 @@ const WrapperStyled = styled.div`
   overflow-x: hidden;
   overflow-y: auto;
 
-  .home__container,
-  .home__container_row,
+  .about__container,
+  .about__container-row,
   .menu {
     width: ${(props) => props.width}%;
     height: ${(props) => props.height}%;
   }
-  .home__container_row {
+  .about__container-row {
     margin: 0 auto;
+  }
+  .about__container-row-col1 {
+    ${(props) => props.centeredFlex()}
   }
 
   // -------------------------------------------------MENU------------------------------------------------
@@ -103,13 +107,127 @@ const WrapperStyled = styled.div`
     }
   }
 
+  //------------------------------------------------ABOUT ME---------------------------------------------
+  .about__info {
+    width: 70%;
+    ${(props) => props.centeredFlex()}
+    margin-top: 100px;
+  }
+
+  .about__info-title {
+    ${(props) => props.centeredFlex()}
+    margin-bottom: 100px;
+    color: ${(props) => props.text_color};
+
+    & p:nth-child(1) {
+      position: fixed;
+      font-size: 200px;
+      letter-spacing: 10px;
+      line-height: 0.5;
+      font-weight: 800;
+      color: rgba(255, 255, 255, 0.07);
+      top: 50%;
+      left: 0%;
+      z-index: -1;
+    }
+    & p:nth-child(2) {
+      font-size: 56px;
+      font-weight: 900;
+      color: #fff;
+
+      span {
+        color: ${(props) => props.primary_color};
+      }
+    }
+  }
+
+  .about__info-personal {
+    width: 100%;
+    margin-bottom: 30px;
+    &-container {
+      width: 100%;
+      ${(props) => props.centeredFlex()}
+      #personal_info_title {
+        color: ${(props) => props.text_color};
+        font-size: 40px;
+        margin-bottom: 20px;
+      }
+    }
+    &-container-row {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin-bottom: 40px;
+      div {
+        width: 100%;
+        a {
+          margin-right: 20px;
+        }
+        display: flex;
+        justify-content: center;
+      }
+    }
+    &-container-row2 {
+      width: ${(props) => props.width}%;
+      margin-bottom: 40px;
+
+      p {
+        margin: 10px;
+        color: rgb(205, 205, 205);
+        font-size: 30px;
+      }
+      span {
+        font-weight: bold;
+        color: ${(props) => props.text_color};
+      }
+    }
+    .download-button {
+      display: flex;
+      align-items: center;
+      position: relative;
+      text-decoration: none;
+      color: black;
+      background: none;
+      background-image: linear-gradient(
+        to right,
+        ${(props) => props.primary_color},
+        ${(props) => props.primary_color}
+      );
+      background-repeat: no-repeat;
+      background-size: 200% 100%; /* double the width to create space for the slide */
+      transition: background-position 0.3s ease-out;
+      font-weight: bold;
+      padding-left: 20px;
+      padding-right: 60px;
+      font-size: 20px;
+      border: 1px solid ${(props) => props.primary_color};
+      color: "black";
+      border-radius: 60px;
+
+      &:hover {
+        color: white;
+        background-position: -100% 0; /* slide the background to the left by 100% (i.e. its full width) */
+        .download-arrow {
+          background-color: ${(props) => props.primary_color};
+        }
+      }
+      .download-arrow {
+        right: 0;
+        bottom: 0;
+        position: absolute;
+        background-color: ${(props) => props.background_color};
+        font-size: 54px;
+        color: ${(props) => props.text_color};
+        border-radius: 60px;
+      }
+    }
+  }
+
   //-----------------------------------------------SKILLS------------------------------------------------
 
   .about__skills {
     margin-bottom: 150px;
-
-    @media (max-width: 786px) {
-    }
+    width: 70%;
   }
 
   .about__skills div {
@@ -134,13 +252,14 @@ const WrapperStyled = styled.div`
 
   //-------------------------------------------EXPERIENCE AND EDUCATION-----------------------------------
   .about__experience {
+    width: 70%;
     ${(props) => props.centeredFlex()}
 
     a {
       color: ${(props) => props.text_color};
     }
     &-row {
-      width: 60%;
+      width: 100%;
       margin-bottom: 200px;
     }
     h1 {
@@ -165,6 +284,7 @@ const WrapperStyled = styled.div`
         border-left: 1px solid ${(props) => props.primary_color};
       }
     }
+
     .graduation-icon {
       color: white;
       font-size: 50px;
@@ -193,134 +313,24 @@ const WrapperStyled = styled.div`
     .about__experience-content * {
       margin: 20px;
     }
-
-    @media (max-width: 1200px) {
-      &-row {
-        width: 80%;
-      }
-    }
   }
 
-  //------------------------------------------------ABOUT ME---------------------------------------------
-  .about__info {
-    width: 100%;
-
-    ${(props) => props.centeredFlex()}
-    padding:5%;
-    padding-top: 100px;
-
-    &-title {
-      ${(props) => props.centeredFlex()}
-      margin-bottom: 100px;
-      color: ${(props) => props.text_color};
-
-      & p:nth-child(1) {
-        position: fixed;
-        font-size: 200px;
-        letter-spacing: 10px;
-        line-height: 0.5;
-        font-weight: 800;
-        color: rgba(255, 255, 255, 0.07);
-        top: 50%;
-        left: 0%;
-        z-index: -1;
-      }
-      & p:nth-child(2) {
-        font-size: 56px;
-        font-weight: 900;
-        color: #fff;
-
-        span {
-          color: ${(props) => props.primary_color};
-        }
-      }
+  @media (max-width: 1200px) {
+    .about__info {
+      width: 80%;
     }
-    &-info {
-      width: 100%;
-      margin-bottom: 30px;
-      &-container {
-        width: 70%;
-        ${(props) => props.centeredFlex()}
-        #personal_info_title {
-          color: ${(props) => props.text_color};
-          font-size: 40px;
-          margin-bottom: 20px;
-        }
-      }
-      &-container-row {
-        display: flex;
-        justify-content: center;
-
-        margin-bottom: 40px;
-        div {
-          width: 100%;
-          a {
-            margin-right: 20px;
-          }
-          display: flex;
-        }
-      }
-      &-container-row2 {
-        width: ${(props) => props.width}%;
-        margin-bottom: 40px;
-
-        p {
-          margin: 10px;
-          color: rgb(205, 205, 205);
-          font-size: 30px;
-        }
-        span {
-          font-weight: bold;
-          color: ${(props) => props.text_color};
-        }
-      }
-      .download-button {
-        display: flex;
-        align-items: center;
-        position: relative;
-        text-decoration: none;
-        color: black;
-        background: none;
-        background-image: linear-gradient(
-          to right,
-          ${(props) => props.primary_color},
-          ${(props) => props.primary_color}
-        );
-        background-repeat: no-repeat;
-        background-size: 200% 100%; /* double the width to create space for the slide */
-        transition: background-position 0.3s ease-out;
-        font-weight: bold;
-        padding-left: 20px;
-        padding-right: 60px;
-        font-size: 20px;
-        border: 1px solid ${(props) => props.primary_color};
-        color: "black";
-        border-radius: 60px;
-
-        &:hover {
-          color: white;
-          background-position: -100% 0; /* slide the background to the left by 100% (i.e. its full width) */
-          .download-arrow {
-            background-color: ${(props) => props.primary_color};
-          }
-        }
-        .download-arrow {
-          right: 0;
-          bottom: 0;
-          position: absolute;
-          background-color: ${(props) => props.background_color};
-          font-size: 54px;
-          color: ${(props) => props.text_color};
-          border-radius: 60px;
-        }
-      }
+    .about__skills {
+      width: 80%;
+    }
+    .about__experience {
+      width: 80%;
     }
   }
 
   @media (max-width: 992px) {
     .about__skills div {
       p {
-        font-size: 30px;
+        font-size: 25px;
       }
     }
     .about__experience {
@@ -335,11 +345,10 @@ const WrapperStyled = styled.div`
       }
     }
     .about__info {
-      &-info-container {
+      &-personal-container {
         #personal_info_title {
           font-size: 30px;
         }
-        width: 80%;
         &-row2 {
           p {
             font-size: 25px;
@@ -349,11 +358,14 @@ const WrapperStyled = styled.div`
     }
   }
 
-  @media (max-width: 568px) {
+  @media (max-width: 786px) {
     .about__info {
-      &-info-container {
-        width: 90%;
-      }
+      width: 100%;
+    }
+  }
+  @media (max-width: 786px) {
+    .about__experience h1 {
+      text-align: center;
     }
   }
 `;
@@ -472,9 +484,9 @@ export default function About() {
           </div>
         </Offcanvas.Body>
       </Offcanvas>
-      <Container className="home__container" fluid>
-        <Row className="home__container_row">
-          <Col xl={11} lg={11} md={12}>
+      <Container className="about__container" fluid>
+        <Row className="about__container-row">
+          <Col xl={11} lg={11} md={12} className="about__container-row-col1">
             <div className="about__info">
               <button
                 className="d-block d-lg-none menuToggleButton "
@@ -488,12 +500,12 @@ export default function About() {
                   ABOUT <span>ME</span>
                 </p>
               </div>
-              <div className="about__info-info">
-                <Container className="about__info-info-container">
+              <div className="about__info-personal">
+                <Container className="about__info-personal-container">
                   <div>
                     <p id="personal_info_title">PERSONAL INFOS</p>
                   </div>
-                  <Row className=" about__info-info-container-row2">
+                  <Row className=" about__info-personal-container-row2">
                     <Col className="p-0 d-flex flex-column align-items-center">
                       <div>
                         <p>
@@ -527,7 +539,7 @@ export default function About() {
                       </div>
                     </Col>
                   </Row>
-                  <Row className="about__info-info-container-row">
+                  <Row className="about__info-personal-container-row">
                     <div>
                       <a
                         href={TranHoangPhu_CV}
@@ -591,7 +603,7 @@ export default function About() {
             <div className="about__experience">
               <h1>EXPERIENCE & EDUCATION</h1>
               <Row className="about__experience-row">
-                <Col xl={6} lg={6} md={12} sm={12} xs={12}>
+                <Col xl={6} lg={6} md={6} sm={12} xs={12}>
                   <ul>
                     <li>
                       <div className="icon">
@@ -616,7 +628,7 @@ export default function About() {
                     </li>
                   </ul>
                 </Col>
-                <Col xl={6} lg={6} md={12} sm={12} xs={12}>
+                <Col xl={6} lg={6} md={6} sm={12} xs={12}>
                   <ul>
                     <li>
                       <div className="icon">
