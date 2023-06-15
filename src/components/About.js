@@ -10,9 +10,9 @@ import { IoIosInformationCircle } from "react-icons/io";
 import { GiSkills } from "react-icons/gi";
 import { FaGraduationCap } from "react-icons/fa";
 
-import nodejs from "../images/nodejs.png";
+import django from "../images/django.png";
 import bootstrap from "../images/bootstrap.png";
-import css from "../images/css.png";
+import sass from "../images/sass.png";
 import javascript from "../images/javascript.png";
 import reactjs from "../images/reactjs.png";
 import html from "../images/html.png";
@@ -576,8 +576,8 @@ export default function About() {
                   <p>HTML</p>
                 </Col>
                 <Col md={6} sm={6} xs={12}>
-                  <img src={css} alt="" />
-                  <p>CSS</p>
+                  <img src={sass} alt="" />
+                  <p>SASS</p>
                 </Col>
                 <Col md={6} sm={6} xs={12}>
                   <img src={javascript} alt="" />
@@ -594,8 +594,8 @@ export default function About() {
                   <p>REACTJS</p>
                 </Col>
                 <Col md={6} sm={6} xs={12}>
-                  <img src={nodejs} alt="" />
-                  <p>NODEJS</p>
+                  <img src={django} alt="" />
+                  <p>DJANGO</p>
                 </Col>
               </Row>
             </div>
@@ -621,8 +621,8 @@ export default function About() {
                           in web development
                         </p>
                         <p>
-                          <strong>Technical skills:</strong> Html, Css,
-                          Javascript, Bootstrap, Python, Django.
+                          <strong>Technical skills:</strong> Reactjs, Sass,
+                          Jquery, Bootstrap, Python, Django, PostgreSql.
                         </p>
                       </div>
                     </li>
@@ -650,7 +650,7 @@ export default function About() {
                       </div>
                       <div className="about__experience-content">
                         <span>2022-2024</span>
-                        <h5>Saigon College: APPLIED INFORMATICS</h5>
+                        <h5>Saigon College: INFORMATION TECHNOLOGY</h5>
                       </div>
                     </li>
                   </ul>

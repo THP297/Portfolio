@@ -8,6 +8,7 @@ import { IoIosInformationCircle } from "react-icons/io";
 import { GiSkills } from "react-icons/gi";
 import { TfiMenu } from "react-icons/tfi";
 
+import keep from "../images/Keep.png";
 import movie from "../images/movie.png";
 import chatapp from "../images/chatapp.png";
 import github from "../images/github.png";
@@ -506,7 +507,7 @@ export default function Portfolio() {
               <Row className="portfolio__highlight-container1 ">
                 <Col xl={6} className="portfolio__highlight-container1-col1">
                   <div className="portfolio__highlight-container1-image">
-                    <img src={movie} alt="" />
+                    <img src={keep} alt="" />
                   </div>
                 </Col>
                 <Col xl={6} className="portfolio__highlight-container1-col2">
@@ -514,33 +515,37 @@ export default function Portfolio() {
                     <li>
                       <h3>Description:</h3>
                       <p>
-                        A movie app allows users to select their preferred movie
-                        genres, search for movies, receive recommendations for
-                        related films, and watch trailers of their chosen films{" "}
+                        The Keep Note project is a web application that enables
+                        users to create, store, remove, modify, and customize
+                        notes. It provides a simple and intuitive interface for
+                        organizing and managing notes effectively.{" "}
                       </p>
                     </li>
                     <li>
                       <h3>Skills in use:</h3>
                       <Row className="p-3 skills">
-                        <Col xl={6} lg={6} md={6} className="skill">
-                          <p>HTML</p>
+                        <Col xl={6} lg={6} md={6} className="skill p-3">
+                          <p>Sass</p>
                         </Col>
-                        <Col xl={6} lg={6} md={6} className="skill">
-                          <p>CSS</p>
+                        <Col xl={6} lg={6} md={6} className="skill p-3">
+                          <p>Jquery</p>
                         </Col>
-                        <Col xl={6} lg={6} md={6} className="skill">
-                          <p>JAVASCRIPT</p>
+                        <Col xl={12} lg={12} md={6} className="skill p-3">
+                          <p>Django</p>
                         </Col>
-                        <Col xl={6} lg={6} md={6} className="skill">
-                          <p>BOOTSTRAP 5</p>
+                        <Col xl={6} lg={6} md={6} className="skill p-3">
+                          <p>Bootstrap</p>
+                        </Col>
+                        <Col xl={6} lg={6} md={6} className="skill p-3">
+                          <p>PostgreSQL</p>
                         </Col>
                       </Row>
                     </li>
                     <li className="d-flex align-items-center justify-content-center">
-                      <Nav.Link href="https://github.com/THP297/Movie-App">
+                      <Nav.Link href="https://github.com/THP297/KeepNote">
                         <img src={github} alt="#github" width={50} />
                       </Nav.Link>
-                      <Nav.Link href="https://thp297.github.io/Movie-App/">
+                      <Nav.Link href="https://keepnote-production.up.railway.app/">
                         <img src={live} width={50} alt="#demo" />
                       </Nav.Link>
                     </li>
@@ -638,7 +643,7 @@ export default function Portfolio() {
                       <li>
                         <h3>Skills in use:</h3>
                         <p>
-                          <span>Reactjs</span> <span>SCSS</span>
+                          <span>Reactjs</span> <span>SASS</span>
                         </p>
                       </li>
                       <li className="d-flex align-items-center justify-content-center">
@@ -737,6 +742,53 @@ export default function Portfolio() {
                           <img src={github} alt="#github" width={50} />
                         </Nav.Link>
                         <Nav.Link href="https://thp297.github.io/Calculator/">
+                          <img src={live} width={50} alt="#demo" />
+                        </Nav.Link>
+                      </li>
+                    </ul>
+                  </Col>
+                </Row>
+                <Row className="portfolio__others-container-row4">
+                  <Col
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    className="p-0 portfolio__others-container-row4-col1"
+                  >
+                    <img
+                      className="portfolio__others-image"
+                      src={movie}
+                      alt="#todo"
+                    />
+                  </Col>
+                  <Col
+                    xl={6}
+                    lg={6}
+                    md={12}
+                    className="portfolio__others-container-row4-col2"
+                  >
+                    <ul>
+                      <li>
+                        <h3>Description</h3>
+                        <p>
+                          A movie app allows users to select their preferred
+                          movie genres, search for movies, receive
+                          recommendations for related films, and watch trailers
+                          of their chosen films
+                        </p>
+                      </li>
+                      <li>
+                        <h3>Skills in use:</h3>
+                        <p>
+                          <span>Javascript</span> <span>SASS</span>
+                          <span>HTML</span>
+                        </p>
+                      </li>
+                      <li className="d-flex align-items-center justify-content-center">
+                        <Nav.Link href="https://github.com/THP297/Movie-App">
+                          <img src={github} alt="#github" width={50} />
+                        </Nav.Link>
+                        <Nav.Link href="https://thp297.github.io/Movie-App/">
                           <img src={live} width={50} alt="#demo" />
                         </Nav.Link>
                       </li>
